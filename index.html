@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UST DAS - Operational Excellence Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #0478c3;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-[#F1F9F8] font-sans antialiased text-gray-800">
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+      <header class="text-center my-8 md:my-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#00429B] mb-4">
+          Delivering Operational Excellence for a Global Recruitment Platform
+        </h1>
+        <h2 class="text-2xl md:text-3xl font-semibold text-[#0478C3] mb-6">
+          UST Application Development & Operation Support (DAS) Team
+        </h2>
+        <p class="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto">
+          The UST Application Development & Operation Support (DAS) team serves
+          as the operational backbone for our client's global digital workforce
+          platform, a system connecting millions to career opportunities. Our
+          mission is to ensure 24/7/365 service integrity, moving beyond simple
+          maintenance to drive continuous innovation. We provide the resilience
+          and optimization required for uninterrupted, high-velocity business
+          operations.
+        </p>
+      </header>
+
+      <main class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div class="md:col-span-2 text-center">
+          <h2 class="text-3xl font-bold text-[#00429B] mb-4">
+            Quantifiable Impact & Business Value
+          </h2>
+          <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+            Our partnership delivers tangible results that strengthen the
+            client's competitive edge. We don't just report on metrics; we
+            actively improve them.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col">
+          <h3 class="text-xl font-bold text-[#00429B] mb-2 text-center">
+            Sustained Performance
+          </h3>
+          <p class="text-gray-600 text-center mb-4">
+            Maintained 99% SLA compliance for four consecutive years,
+            solidifying platform reliability and client trust.
+          </p>
+          <div
+            class="chart-container relative w-full max-w-xs mx-auto h-64 md:h-72 max-h-72 flex-grow"
+          >
+            <canvas id="slaChart"></canvas>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col">
+          <h3 class="text-xl font-bold text-[#00429B] mb-2 text-center">
+            ITIL-Driven Process Excellence
+          </h3>
+          <p class="text-gray-600 text-center mb-4">
+            Achieving and maintaining 99% SLA compliance for four consecutive
+            years, governed by rigorous ITIL-based methodologies.
+          </p>
+          <div
+            class="chart-container relative w-full max-w-lg mx-auto h-64 md:h-72 max-h-72 flex-grow"
+          >
+            <canvas id="slaTrendChart"></canvas>
+          </div>
+        </div>
+
+        <div class="md:col-span-2 bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-[#00429B] mb-2 text-center">
+            Enhanced Efficiency & Strategic Cost Reduction
+          </h3>
+          <p class="text-gray-600 text-center mb-4 max-w-2xl mx-auto">
+            Significantly reduced system downtime and manual effort through
+            AI-driven automation. Lowered total infrastructure costs through
+            meticulous optimization, audits, and intelligent resource
+            allocation.
+          </p>
+          <div
+            class="chart-container relative w-full max-w-3xl mx-auto h-80 md:h-96 max-h-96"
+          >
+            <canvas id="efficiencyChart"></canvas>
+          </div>
+        </div>
+
+        <div class="md:col-span-2 text-center mt-8">
+          <h2 class="text-3xl font-bold text-[#00429B] mb-4">
+            Core Capabilities: How We Deliver Value
+          </h2>
+          <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+            Our impact is built on a foundation of five core capabilities,
+            working in synergy to provide intelligent, proactive support.
+          </p>
+        </div>
+
+        <div class="md:col-span-2 bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-[#00429B] mb-2 text-center">
+            Integrated DevOps
+          </h3>
+          <p class="text-gray-600 text-center mb-6 max-w-2xl mx-auto">
+            Bridging the gap between development and operations to accelerate
+            delivery, enhance release stability, and provide intelligent,
+            context-aware support that feeds back into innovation.
+          </p>
+          <div
+            class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-2 text-center"
+          >
+            <div class="p-4 bg-[#F1F9F8] rounded-lg shadow-sm w-48">
+              <span class="text-4xl">💻</span>
+              <h4 class="font-semibold text-[#00429B]">Development</h4>
+            </div>
+            <span class="block md:hidden text-4xl text-[#00A9E0]">&darr;</span>
+            <span class="hidden md:block text-4xl text-[#00A9E0]">&rarr;</span>
+            <div class="p-4 bg-[#F1F9F8] rounded-lg shadow-sm w-48">
+              <span class="text-4xl">⚙️</span>
+              <h4 class="font-semibold text-[#00429B]">Operations</h4>
+            </div>
+            <span class="block md:hidden text-4xl text-[#00A9E0]">&darr;</span>
+            <span class="hidden md:block text-4xl text-[#00A9E0]">&rarr;</span>
+            <div class="p-4 bg-[#F1F9F8] rounded-lg shadow-sm w-48">
+              <span class="text-4xl">🚀</span>
+              <h4 class="font-semibold text-[#00429B]">Stable Releases</h4>
+            </div>
+            <span class="block md:hidden text-4xl text-[#00A9E0]">&darr;</span>
+            <span class="hidden md:block text-4xl text-[#00A9E0]">&rarr;</span>
+            <div class="p-4 bg-[#F1F9F8] rounded-lg shadow-sm w-48">
+              <span class="text-4xl">🧠</span>
+              <h4 class="font-semibold text-[#00429B]">Smarter Support</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-2 bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-[#00429B] mb-2 text-center">
+            Core Capabilities Focus
+          </h3>
+          <p class="text-gray-600 text-center mb-4 max-w-2xl mx-auto">
+            Our service delivery is built on proactive, intelligent support
+            across all critical areas: 24/7 service integrity, ITIL process
+            excellence, integrated DevOps, infrastructure optimization, and
+            data-driven decision making.
+          </p>
+          <div
+            class="chart-container relative w-full max-w-xl mx-auto h-80 md:h-96 max-h-96"
+          >
+            <canvas id="capabilitiesChart"></canvas>
+          </div>
+        </div>
+
+        <div class="md:col-span-2 bg-white rounded-lg shadow-lg p-6 md:p-8">
+          <h3 class="text-2xl font-bold text-[#00429B] mb-4 text-center">
+            ✨ Data-Driven Decision Making
+          </h3>
+          <p class="text-gray-600 text-center mb-6 max-w-2xl mx-auto">
+            Empowering client leadership with actionable intelligence via
+            automated, real-time ServiceNow and Power BI dashboards. Our
+            AI-powered insights engine generates proactive strategies from
+            operational data, enabling informed decision-making and continuous
+            improvement.
+          </p>
+        </div>
+
+        <div
+          class="md:col-span-2 bg-[#00429B] text-white rounded-lg shadow-lg p-10 text-center my-8"
+        >
+          <h2 class="text-3xl font-bold mb-4">
+            Global Collaborative Partnership
+          </h2>
+          <p class="text-xl md:text-2xl text-[#9BD3DD] max-w-3xl mx-auto">
+            We have fostered a strong, trusted advisory relationship with our
+            client on a global scale. Our partnership is built on a foundation
+            of
+            <span class="font-bold text-white"
+              >proven performance, shared goals, and continuous
+              innovation,</span
+            >
+            ensuring their global recruitment platform remains a leader in the
+            market.
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tooltipTitleCallback = function (tooltipItems) {
+          const item = tooltipItems[0];
+          let label = item.chart.data.labels[item.dataIndex];
+          if (Array.isArray(label)) {
+            return label.join(" ");
+          } else {
+            return label;
+          }
+        };
+
+        const commonTooltipOptions = {
+          plugins: {
+            tooltip: {
+              callbacks: {
+                title: tooltipTitleCallback,
+              },
+              bodyFont: {
+                size: 14,
+              },
+              titleFont: {
+                size: 16,
+                weight: "bold",
+              },
+              padding: 12,
+              cornerRadius: 6,
+            },
+          },
+        };
+
+        function wrapLabels(labels, maxWidth = 16) {
+          return labels.map((label) => {
+            if (typeof label !== "string" || label.length <= maxWidth) {
+              return label;
+            }
+            const words = label.split(" ");
+            let lines = [];
+            let currentLine = "";
+            for (const word of words) {
+              if (
+                (currentLine + " " + word).trim().length > maxWidth &&
+                currentLine.length > 0
+              ) {
+                lines.push(currentLine);
+                currentLine = word;
+              } else {
+                currentLine = (currentLine + " " + word).trim();
+              }
+            }
+            if (currentLine.length > 0) {
+              lines.push(currentLine);
+            }
+            return lines;
+          });
+        }
+
+        const slaChartCtx = document.getElementById("slaChart");
+        if (slaChartCtx) {
+          new Chart(slaChartCtx, {
+            type: "doughnut",
+            data: {
+              labels: ["SLA Maintained", "SLA Missed"],
+              datasets: [
+                {
+                  data: [99, 1],
+                  backgroundColor: ["#0478C3", "#9BD3DD"],
+                  borderColor: ["#0478C3", "#9BD3DD"],
+                  borderWidth: 1,
+                  hoverOffset: 4,
+                },
+              ],
+            },
+            options: {
+              ...commonTooltipOptions,
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                ...commonTooltipOptions.plugins,
+                legend: {
+                  position: "bottom",
+                  labels: {
+                    font: { size: 14 },
+                  },
+                },
+              },
+              cutout: "70%",
+            },
+          });
+        }
+
+        const slaTrendChartCtx = document.getElementById("slaTrendChart");
+        if (slaTrendChartCtx) {
+          new Chart(slaTrendChartCtx, {
+            type: "line",
+            data: {
+              labels: ["Year 1", "Year 2", "Year 3", "Year 4"],
+              datasets: [
+                {
+                  label: "SLA Compliance (%)",
+                  data: [99.1, 99.3, 99.2, 99.4],
+                  borderColor: "#00429B",
+                  backgroundColor: "rgba(0, 66, 155, 0.1)",
+                  fill: true,
+                  tension: 0.1,
+                  borderWidth: 3,
+                },
+              ],
+            },
+            options: {
+              ...commonTooltipOptions,
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                y: {
+                  beginAtZero: false,
+                  min: 98.0,
+                  max: 100.0,
+                  ticks: {
+                    stepSize: 0.5,
+                    font: { size: 12 },
+                  },
+                },
+                x: {
+                  ticks: {
+                    font: { size: 12 },
+                  },
+                },
+              },
+              plugins: {
+                ...commonTooltipOptions.plugins,
+                legend: {
+                  display: false,
+                },
+              },
+            },
+          });
+        }
+
+        const efficiencyChartCtx = document.getElementById("efficiencyChart");
+        if (efficiencyChartCtx) {
+          const efficiencyLabels = wrapLabels([
+            "Manual Effort",
+            "System Downtime",
+            "Infrastructure Costs",
+          ]);
+          new Chart(efficiencyChartCtx, {
+            type: "bar",
+            data: {
+              labels: efficiencyLabels,
+              datasets: [
+                {
+                  label: "Before Optimization (Index)",
+                  data: [100, 100, 100],
+                  backgroundColor: "#9BD3DD",
+                  borderRadius: 4,
+                },
+                {
+                  label: "After Optimization (Index)",
+                  data: [30, 15, 70],
+                  backgroundColor: "#00429B",
+                  borderRadius: 4,
+                },
+              ],
+            },
+            options: {
+              ...commonTooltipOptions,
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    font: { size: 12 },
+                  },
+                },
+                x: {
+                  ticks: {
+                    font: { size: 12 },
+                  },
+                },
+              },
+              plugins: {
+                ...commonTooltipOptions.plugins,
+                legend: {
+                  position: "top",
+                  labels: {
+                    font: { size: 14 },
+                  },
+                },
+              },
+            },
+          });
+        }
+
+        const capabilitiesChartCtx =
+          document.getElementById("capabilitiesChart");
+        if (capabilitiesChartCtx) {
+          const capabilityLabels = wrapLabels([
+            "24/7 Service Integrity",
+            "ITIL Process Excellence",
+            "Integrated DevOps",
+            "Infrastructure & Cost Optimization",
+            "Data-Driven Decision Making",
+          ]);
+
+          new Chart(capabilitiesChartCtx, {
+            type: "radar",
+            data: {
+              labels: capabilityLabels,
+              datasets: [
+                {
+                  label: "DAS Capability Focus",
+                  data: [5, 5, 4, 4, 4],
+                  backgroundColor: "rgba(4, 120, 195, 0.2)",
+                  borderColor: "#0478C3",
+                  pointBackgroundColor: "#0478C3",
+                  pointBorderColor: "#fff",
+                  pointHoverBackgroundColor: "#fff",
+                  pointHoverBorderColor: "#0478C3",
+                  borderWidth: 2,
+                },
+              ],
+            },
+            options: {
+              ...commonTooltipOptions,
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                r: {
+                  beginAtZero: true,
+                  max: 5,
+                  min: 0,
+                  ticks: {
+                    stepSize: 1,
+                    backdropColor: "transparent",
+                    font: { size: 10 },
+                  },
+                  pointLabels: {
+                    font: {
+                      size: 12,
+                      weight: "bold",
+                    },
+                  },
+                  grid: {
+                    color: "#9BD3DD",
+                  },
+                  angleLines: {
+                    color: "#9BD3DD",
+                  },
+                },
+              },
+              plugins: {
+                ...commonTooltipOptions.plugins,
+                legend: {
+                  position: "top",
+                  labels: {
+                    font: { size: 14 },
+                  },
+                },
+              },
+            },
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
